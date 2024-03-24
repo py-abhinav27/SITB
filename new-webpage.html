@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Sakshi is the Best</title>
+  <style>
+    body {
+      background-color: hotpink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: cursive;
+      /* Girly font */
+    }
+
+    .new-container {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .image-container {
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .date {
+      font-size: 16px;
+      color: pink;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      font-size: 18px;
+      color: hotpink;
+    }
+
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .button {
+      background-color: pink;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 5%;
+      /* Adjusted padding for responsiveness */
+      margin: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: lightpink;
+    }
+
+    #nextButton {
+      padding: 10px 18px 5%;
+      /* Keeping button size the same */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="new-container">
+    <div class="image-container">
+      <img src="IMG_20240324_123718.jpg" alt="image" id="image1">
+    </div>
+    <p class="date">December 14, 2022</p>
+    <p class="text">The Day We Met</p>
+  </div>
+
+  <div class="new-container" style="display: none;">
+    <div class="image-container">
+      <img src="Snapchat-1975928032.jpg" alt="image" id="image2">
+    </div>
+    <p class="date">March 17, 2023</p>
+    <p class="text">The First Date</p>
+  </div>
+  <div class="new-container" style="display: none;">
+    <div class="image-container">
+      <img src="Snapchat-1957922356~2.jpg" alt="image" id="image2">
+    </div>
+    <p class="date">September 23, 2023</p>
+    <p class="text">The Day You Got Drunk</p>
+  </div>
+  <div class="new-container" style="display: none;">
+    <div class="image-container">
+      <img src="IMG_20240324_010044.jpg" alt="image" id="image2">
+    </div>
+    <p class="date">October 26 , 2023</p>
+    <p class="text">The Day I Realized I Love You</p>
+  </div>
+  <div class="new-container" style="display: none;">
+    <div class="image-container">
+      <img src="IMG_20240324_010127.jpg" alt="image" id="image2">
+    </div>
+    <p class="date">Feb 10, 2024</p>
+    <p class="text">The Day I Kissed You</p>
+  </div>
+  <div class="new-container" style="display: none;">
+    <div class="image-container">
+      <img src="IMG-20240224-WA0014.jpg" alt="image" id="image2">
+    </div>
+    <p class="date">Feb 23, 2024</p>
+    <p class="text">The Day You Confessed</p>
+  </div>
+
+  <div class="new-container" style="display: none;">
+    <p class="text">You know why are you best? Becuase you made all those first experiences special and memorable. I am
+      weak at remembering dates but if its you how can I forget that.</p>
+    <p class="text">I LOVE YOU BABYGIRL</p>
+  </div>
+
+  <div class="controls">
+    <button class="button" onclick="showContainer(-1)">Previous</button>
+    <button class="button" onclick="showContainer(1)" id="nextButton">Next</button>
+  </div>
+
+  <script>
+    let currentContainer = 1;
+
+    function showContainer(step) {
+      const containers = document.querySelectorAll('.new-container');
+      containers.forEach((container, index) => {
+        if (index === currentContainer - 1) {
+          container.style.display = 'none';
+        }
+        if (index === currentContainer - 1 + step) {
+          container.style.display = 'block';
+        }
+      });
+
+      currentContainer += step;
+      if (currentContainer < 1) {
+        currentContainer = 1;
+      }
+      if (currentContainer > containers.length) {
+        currentContainer = containers.length;
+      }
+
+      if (currentContainer === containers.length) {
+        document.getElementById('nextButton').disabled = true;
+      } else {
+        document.getElementById('nextButton').disabled = false;
+      }
+    }
+  </script>
+</body>
+
+</html>
