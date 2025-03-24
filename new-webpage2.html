@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why Sakshi is the Best</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        body {
+            background-color: hotpink;
+            margin: 0;
+            font-family: cursive;
+        }
+
+        .nav-year {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: #ff1493;
+        }
+
+        .year-btn {
+            background-color: white;
+            color: hotpink;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .year-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .year-btn.active {
+            background-color: pink;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .active-section {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .new-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .image-container {
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .text {
+            font-size: 18px;
+            color: hotpink;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: pink;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 5px 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: lightpink;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+        }
+
+        #ready-for-gifts {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            margin-top: 20px;
+        }
+
+        #ready-for-gifts p {
+            animation: bounce 1s infinite;
+        }
+
+        #party-screen {
+            display: none;
+            text-align: center;
+            background-color: hotpink;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #party-screen h1 {
+            animation: heartBeat 1.5s infinite;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .dance-gif {
+            width: 300px;
+            margin: 20px;
+            animation: bounce 2s infinite;
+            background-color: transparent;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+
+        .gift-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .gift-image {
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-image:hover {
+            transform: scale(1.05);
+        }
+
+        .gift-details {
+            flex: 1;
+            text-align: left;
+        }
+
+        .gift-image img {
+            width: 100%;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .order-now {
+            padding: 15px 30px;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+
+        .later {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .revisit-memories {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .revisit-memories .button {
+            animation: bounce 1s infinite;
+        }
+
+        /* Add floating hearts animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 192, 203, 0.6);
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Add balloon and confetti animations */
+        @keyframes balloonFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: radial-gradient(circle at 15px 15px, #ff69b4, #ff1493);
+            border-radius: 50%;
+            animation: balloonFloat 6s linear infinite;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: #ff1493;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            animation: confettiFall 4s linear infinite;
+        }
+
+        .party-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .coupon-section {
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .coupon-title {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .coupon-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coupon-option {
+            background: white;
+            color: hotpink;
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            border: 2px solid transparent;
+        }
+
+        .coupon-option:hover {
+            transform: scale(1.05);
+            border-color: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .coupon-history {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80vh;
+            overflow-y: auto;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .coupon-history h2 {
+            color: hotpink;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .coupon-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .coupon-item {
+            background: white;
+            border: 2px solid hotpink;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .coupon-item .time {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .close-history {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: hotpink;
+        }
+
+        .view-coupons-btn {
+            background: white;
+            color: hotpink;
+            border: 2px solid hotpink;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .view-coupons-btn:hover {
+            background: hotpink;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .coupon-confirmation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            text-align: center;
+            animation: bounce 0.5s ease;
+        }
+
+        .coupon-confirmation h3 {
+            color: hotpink;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Add floating hearts container -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Year Navigation -->
+    <div class="nav-year">
+        <button class="year-btn" onclick="switchYear(2024)">2024</button>
+        <button class="year-btn active" onclick="switchYear(2025)">2025</button>
+    </div>
+
+    <!-- Memories Section (2024) -->
+    <div id="memories-2024" class="section">
+        <div class="new-container">
+            <div class="image-container">
+                <img src="IMG_20240324_123718.jpg" alt="image">
+            </div>
+            <p class="text">The Day We Met - Dec 14, 2022</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="Snapchat-1975928032.jpg" alt="image">
+            </div>
+            <p class="text">The First Date - March 17, 2023</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="Snapchat-1957922356~2.jpg" alt="image">
+            </div>
+            <p class="text">The Day You Got Drunk - September 23, 2023</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="IMG_20240324_010044.jpg" alt="image">
+            </div>
+            <p class="text">The Day I Realized I Love You - October 26, 2023</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="IMG_20240324_010127.jpg" alt="image">
+            </div>
+            <p class="text">The Day I Kissed You - Feb 10, 2024</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="IMG-20240224-WA0014.jpg" alt="image">
+            </div>
+            <p class="text">The Day You Confessed - Feb 23, 2024</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <p class="text">You made all my moments special. I LOVE YOU BABYGIRL 💖</p>
+        </div>
+        <div class="controls">
+            <button class="button" onclick="showContainer(-1, '2024')">Previous</button>
+            <button class="button" onclick="showContainer(1, '2024')">Next</button>
+        </div>
+    </div>
+
+    <!-- Memories Section (2025 - Default) -->
+    <div id="memories-2025" class="section active-section">
+        <div class="new-container">
+            <div class="image-container">
+                <img src="feb_10.jpeg" alt="Our First Kiss">
+            </div>
+            <p class="text">February 10, 2024 - The day everything began. Our relationship started with a magical kiss
+                that changed everything. This was the moment I knew you were the one.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="feb_24.jpeg" alt="Our First Nightout">
+            </div>
+            <p class="text">February 24, 2024 - Our first nightout together. You were still healing from your past, and
+                that night we promised to share everything - the good, the bad, the ups, and the downs. I'll always be
+                there for you.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="march_1.jpeg" alt="My Photo on Your Wallpaper">
+            </div>
+            <p class="text">March 1, 2024 - When I saw my childhood photo on your phone wallpaper, my heart melted.
+                That's when I realized it wasn't just me who was madly in love - you felt the same way too.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="march_25.jpeg" alt="Our First Holi">
+            </div>
+            <p class="text">March 25, 2024 - Our first Holi together! The colors brought so much joy to our
+                relationship. We were a little high on bhaang, but that just made every moment even more special.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="april_17.jpeg" alt="Firebrick Night">
+            </div>
+            <p class="text">April 17, 2024 - The Firebrick night, maybe the best night we've spent together. It was
+                romantic, cute, and perfect. That night showed me how emotionally and physically compatible we are for a
+                long, beautiful relationship.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="sept_4.gif" alt="My First Job">
+            </div>
+            <p class="text">September 4, 2024 - The day I got one more thing to say as you are my first. I was talking
+                about my job - I got my first job that day and we celebrated it together. What were you thinking? 😏</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="oct_16.jpeg" alt="Dharamshala Trip">
+            </div>
+            <p class="text">October 16, 2024 - Our very first trip together to Dharamshala. We had romantic candlelight
+                dinners and cooked food together. It was one of the most memorable days of my life.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="nov_27.gif" alt="My First Birthday">
+            </div>
+            <p class="text">November 27, 2024 - My first birthday as your boyfriend. You prepared the whole birthday
+                setup yourself, and it was so perfect that I almost cried (okay, I did cry). You did everything I could
+                ever imagine.</p>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="image-container">
+                <img src="feb_14.jpeg" alt="Our First Valentine's">
+            </div>
+            <p class="text">February 14, 2025 - Our first Valentine's Day in our relationship. We went to the temple for
+                blessings, had your favorite lasagna at a beautiful cafe, and ended with a romantic evening walk. Maybe
+                the best day of this year until March 24, because your birthday will always be my number one choice.</p>
+        </div>
+        <div class="controls">
+            <button class="button" onclick="showContainer(-1, '2025')">Previous</button>
+            <button class="button" onclick="showContainer(1, '2025')" id="nextButton">Next</button>
+        </div>
+    </div>
+
+    <!-- Ready for Gifts Section -->
+    <div id="ready-for-gifts" class="section" style="display: none;">
+        <div class="new-container">
+            <p class="text" style="font-size: 24px;">Ready for gifts? 🎁</p>
+            <button class="button" onclick="showGifts()">YES</button>
+        </div>
+    </div>
+
+    <!-- Gifts Section (2025) -->
+    <div id="gifts-2025" class="section" style="display: none;">
+        <div class="new-container">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="gift_1.jpeg" alt="Toblerone">
+                </div>
+                <div class="gift-details">
+                    <h2 style="color: hotpink;">Sweet Toblerone</h2>
+                    <p>Let's start with something sweet! Your favorite chocolate to make your day sweeter. Muh meetha ho
+                        jaye! 🍫</p>
+                    <div class="gift-buttons">
+                        <button class="button order-now" onclick="orderNow()">Order Now</button>
+                        <button class="button later" onclick="showLaterPopup()">Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="gift_2.jpeg" alt="Mood Toy">
+                </div>
+                <div class="gift-details">
+                    <h2 style="color: hotpink;">Mood Expressing Toy</h2>
+                    <p>A cute soft toy that shows both happy and sad moods. Now you can send me snaps to let me know how
+                        you're feeling, because I never want you to feel sad alone. I'll always be there to make you
+                        smile! 🧸</p>
+                    <div class="gift-buttons">
+                        <button class="button order-now" onclick="orderNow()">Order Now</button>
+                        <button class="button later" onclick="showLaterPopup()">Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="gift_3.jpeg" alt="Heating Pad">
+                </div>
+                <div class="gift-details">
+                    <h2 style="color: hotpink;">Period Care Kit</h2>
+                    <p>A heating pad and massager for your period cramps. I can't see you in pain, and even though I
+                        can't be there physically, this will help you feel better. I care about your comfort, always! 💝
+                    </p>
+                    <div class="gift-buttons">
+                        <button class="button order-now" onclick="orderNow()">Order Now</button>
+                        <button class="button later" onclick="showLaterPopup()">Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="gift_4.jpeg" alt="Evil Eye Ring">
+                </div>
+                <div class="gift-details">
+                    <h2 style="color: hotpink;">Protection Ring</h2>
+                    <p>An evil eye ring to protect you from all buri nazar. Even I need protection from falling in love
+                        with your beauty more and more each day! 💫</p>
+                    <div class="gift-buttons">
+                        <button class="button order-now" onclick="orderNow()">Order Now</button>
+                        <button class="button later" onclick="showLaterPopup()">Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-container" style="display: none;">
+            <div class="gift-container">
+                <div class="gift-image">
+                    <img src="gift_5.jpeg" alt="Special T-shirt">
+                </div>
+                <div class="gift-details">
+                    <h2 style="color: hotpink;">My Special T-shirt</h2>
+                    <p>You wanted my t-shirt because you miss me, so I got you one! It will be delivered at night after
+                        I wear it for a few hours, so it smells like me. But there's a special secret about this t-shirt
+                        that you'll discover when you see it! 👕</p>
+                    <div class="gift-buttons">
+                        <button class="button order-now" onclick="orderNow()">Order Now</button>
+                        <button class="button later" onclick="showLaterPopup()">Later</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Party Screen -->
+    <div id="party-screen" class="section" style="display: none;">
+        <div class="party-container" id="party-container"></div>
+        <h1 style="color: white; font-size: 50px;">Happy Birthday My Love! 🎉</h1>
+        <img src="celebrate.gif" class="dance-gif" alt="Celebration">
+
+        <!-- Coupon Section -->
+        <div class="coupon-section">
+            <h2 class="coupon-title">Special Birthday Coupons! 🎁</h2>
+            <div class="coupon-options">
+                <div class="coupon-option" onclick="handleCouponRequest('A Romantic Dinner Date')">
+                    A Romantic Dinner Date 🍝
+                </div>
+                <div class="coupon-option" onclick="handleCouponRequest('Cook Food of Your Choice')">
+                    Cook Food of Your Choice 👨‍🍳
+                </div>
+                <div class="coupon-option" onclick="handleCouponRequest('A Romantic Evening Walk')">
+                    A Romantic Evening Walk 🌅
+                </div>
+            </div>
+            <button class="view-coupons-btn" onclick="showCouponHistory()">View My Coupons 💝</button>
+        </div>
+
+        <div class="revisit-memories">
+            <button class="button" onclick="revisitMemories()">Want to see those memories again? 💖</button>
+        </div>
+    </div>
+
+    <!-- Coupon History Modal -->
+    <div class="coupon-history" id="coupon-history">
+        <button class="close-history" onclick="closeCouponHistory()">×</button>
+        <h2>Your Special Coupons 💝</h2>
+        <ul class="coupon-list" id="coupon-list"></ul>
+    </div>
+
+    <!-- Coupon Confirmation -->
+    <div class="coupon-confirmation" id="coupon-confirmation">
+        <h3>Coupon Added! 🎉</h3>
+        <p>Your special coupon has been saved! 💝</p>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="popup">
+        <h2 style="color: hotpink;">Lena toh Padega 😊</h2>
+        <button class="button" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        let currentContainer = 1;
+        let currentGift = 1;
+        let coupons = [];
+
+        function switchYear(year) {
+            document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.year-btn:nth-child(${year === 2024 ? 1 : 2})`).classList.add('active');
+
+            document.getElementById('memories-2024').style.display = year === 2024 ? 'block' : 'none';
+            document.getElementById('memories-2025').style.display = year === 2025 ? 'block' : 'none';
+            document.getElementById('gifts-2025').style.display = 'none';
+            document.getElementById('party-screen').style.display = 'none';
+            document.getElementById('ready-for-gifts').style.display = 'none';
+        }
+
+        function showContainer(step, year) {
+            const containers = document.querySelectorAll(`#memories-${year} .new-container`);
+            if (currentContainer < containers.length) {
+                containers[currentContainer - 1].style.display = 'none';
+                containers[currentContainer].style.display = 'block';
+                containers[currentContainer].style.animation = 'slideIn 0.5s ease';
+                currentContainer += step;
+            } else if (year === '2025') {
+                document.getElementById('memories-2025').style.display = 'none';
+                document.getElementById('ready-for-gifts').style.display = 'block';
+            }
+        }
+
+        function showGifts() {
+            document.getElementById('ready-for-gifts').style.display = 'none';
+            document.getElementById('gifts-2025').style.display = 'block';
+            document.querySelector('#gifts-2025 .new-container').style.animation = 'fadeIn 0.5s ease';
+        }
+
+        function orderNow() {
+            const giftContainers = document.querySelectorAll('#gifts-2025 .new-container');
+            if (currentGift < giftContainers.length) {
+                giftContainers[currentGift - 1].style.display = 'none';
+                giftContainers[currentGift].style.display = 'block';
+                giftContainers[currentGift].style.animation = 'fadeIn 0.5s ease';
+                currentGift++;
+            } else {
+                showPartyScreen();
+            }
+        }
+
+        function showLaterPopup() {
+            document.getElementById('popup-overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup-overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function revisitMemories() {
+            currentContainer = 1;
+            document.getElementById('party-screen').style.display = 'none';
+            document.getElementById('memories-2025').style.display = 'block';
+            const containers = document.querySelectorAll('#memories-2025 .new-container');
+            containers.forEach((container, index) => {
+                container.style.display = index === 0 ? 'block' : 'none';
+            });
+        }
+
+        // Add floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('floating-hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 300);
+
+        // Add party animations
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('party-container').appendChild(balloon);
+
+            setTimeout(() => {
+                balloon.remove();
+            }, 6000);
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.getElementById('party-container').appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }
+
+        // Start party animations when party screen is shown
+        function showPartyScreen() {
+            document.getElementById('gifts-2025').style.display = 'none';
+            document.getElementById('party-screen').style.display = 'block';
+            document.getElementById('party-screen').style.animation = 'fadeIn 0.5s ease';
+
+            // Start creating balloons and confetti
+            setInterval(createBalloon, 300);
+            setInterval(createConfetti, 100);
+        }
+
+        function handleCouponRequest(couponType) {
+            const timestamp = new Date().toLocaleString();
+            const coupon = {
+                type: couponType,
+                time: timestamp
+            };
+
+            coupons.push(coupon);
+
+            // Show confirmation
+            const confirmation = document.getElementById('coupon-confirmation');
+            confirmation.style.display = 'block';
+
+            // Hide confirmation after 2 seconds
+            setTimeout(() => {
+                confirmation.style.display = 'none';
+            }, 2000);
+        }
+
+        function showCouponHistory() {
+            const history = document.getElementById('coupon-history');
+            const list = document.getElementById('coupon-list');
+
+            // Clear previous list
+            list.innerHTML = '';
+
+            // Add coupons to list
+            coupons.forEach(coupon => {
+                const item = document.createElement('li');
+                item.className = 'coupon-item';
+                item.innerHTML = `
+                    <div>${coupon.type}</div>
+                    <div class="time">Requested on: ${coupon.time}</div>
+                `;
+                list.appendChild(item);
+            });
+
+            history.style.display = 'block';
+        }
+
+        function closeCouponHistory() {
+            document.getElementById('coupon-history').style.display = 'none';
+        }
+
+        // Close coupon history when clicking outside
+        window.onclick = function (event) {
+            const history = document.getElementById('coupon-history');
+            if (event.target === history) {
+                closeCouponHistory();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
